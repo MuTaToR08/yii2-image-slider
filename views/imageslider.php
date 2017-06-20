@@ -11,11 +11,12 @@ $baseUrl = $widget->baseUrl;
 	<?php endif; ?>
 	<div class="carousel-inner" style="width:<?= isset($widget->width) ? $widget->width.';': '100%'?>;height:<?= isset($widget->height) ? $widget->height.';': '100%' ?>;">
             <?php foreach ($widget->images as $image) : ?>
+			<? $link = (array_key_exists('link',$image) && !empty($image['link']))?urlencode($image['link']):null;?>
                     <div class="item <?= isset($image['active']) ? 'active': '';?>">
-                            <img src="<?= $baseUrl.'/'.$image['src'] ?>" 
+                            <?=empty($link)?'':'<a href="'.$link.'">'?><img src="<?= $baseUrl.'/'.$image['src'] ?>" 
                             width="<?= isset($image['width']) ? $image['width'].';': '100%' ?>"
                             height="<?= isset($image['height']) ? $image['height'].';': '100%' ?>"
-                            class="<?= isset($widget->classes) ? $widget->classes: '';?>">
+                            class="<?= isset($widget->classes) ? $widget->classes: '';?>" /><?=empty($link)?'':'</a>'?>
                             <div class="carousel-caption">
                                     <?= isset($image['caption']) ? $image['caption']: '';?>
                             </div>

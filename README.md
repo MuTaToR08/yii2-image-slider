@@ -39,11 +39,14 @@ Once the extension is installed, simply use it in your code by  :
             'active' => true,
             'src' => 'image/a.jpg',
             'title' => 'image',
+			'link' => '/a.php',
 
         ],
         [
             'src' => 'image/b.jpg',
             'title' => 'image',
+			'link' => '/b.php',
+
     	]
     ],
 ]); ?>```
